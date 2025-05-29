@@ -17,6 +17,7 @@
     .marked { background: #FFFFFF; background-image: url(https://bingobaker.com/static/1725833568/img/mark.svg); background-repeat: no-repeat; background-position: center; background-size: 100px; }
     #message { margin-top: 20px; font-size: 1.2em; font-weight: bold; color: #333; }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   <h1>Бінго агента підтримки 🚀</h1>
@@ -53,6 +54,23 @@
       cell.addEventListener('click', () => toggleCell(cell));
       bingo.appendChild(cell);
     }
+    // Show toast with rules on page load
+    window.addEventListener('load', () => {
+      Swal.fire({
+        toast: true,
+        position: 'top-end',
+        icon: 'info',
+        title: 'Бінго підтримки - перевір свою профдеформацію 
+Ми зібрали найтиповіші (і найболшючіші) ситуації, з якими стикається кожен та кожна в лінії
+Хтось скаже травма - ми скажемо бінго.
+Відмічай ситуації, з якими стикався
+Зібрав ряд - сміливо кричи БІНГО в коментарях
+п.с. якщо не зібрав жодного рядка - ти або новенький, або працюєш в ідеальному світі 😉',
+        showConfirmButton: false,
+        timer: 5000,
+        timerProgressBar: true
+      });
+    });
 
     function toggleCell(cell) {
       cell.classList.toggle('marked');
